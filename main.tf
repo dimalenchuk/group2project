@@ -1,5 +1,5 @@
 provider "google" {
-  credentials = file("focal-freedom-292312-ce620a51c481.json")
+  credentials = file(var.creds)
   user_project_override = true
 }
 
