@@ -6,7 +6,7 @@ variable cluster_name {
 
 variable proj_name {
   type        = string
-  default     = "focal-freedom-292312"
+  default     = "group-2-id"
   description = "description"
 }
 
