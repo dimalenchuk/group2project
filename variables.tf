@@ -1,8 +1,3 @@
-variable creds {
-  default     = "creds.json"
-  description = "description"
-}
-
 variable cluster_name {
   type        = string
   default     = "proj-cluster"
