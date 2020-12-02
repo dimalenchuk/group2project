@@ -1,4 +1,5 @@
 provider "google" {
+  credentials = file("creds.json")
   user_project_override = true
 }
 
