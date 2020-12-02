@@ -1,5 +1,4 @@
 provider "google" {
-  credentials = file(var.creds)
   user_project_override = true
 }
 
