@@ -1,5 +1,5 @@
 variable creds {
-  default     = "group-2-id-e1c7ed7d75c4.json"
+  default     = "creds.json"
   description = "description"
 }
 
