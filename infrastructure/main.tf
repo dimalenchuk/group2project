@@ -1,6 +1,12 @@
 provider "google" {
   user_project_override = true
 }
+terraform {
+  backend "gcs"{
+    bucket      = "tfstate"
+    prefix      = "dev"
+  }
+}
 
 data "google_client_config" "default" {}
 
