@@ -50,3 +50,8 @@ resource "google_compute_address" "db_internal_ip" {
   region  = var.region
   project = "${var.proj_name}"
 }
+
+output db_internal_ip {
+  value       = google_compute_address.db_internal_ip.address
+  description = "description"
+}
