@@ -30,10 +30,19 @@ pipeline {
                 }
             }
         }
-        // stage('Terraform Apply') {
-        //     steps {
-        //         sh 'terraform apply --auto-approve'
-        //     }
-        // }
+        stage('Terraform init and apply') {
+            steps {
+                withCredentials([file(credentialsId: 'gcp', variable: 'gcp')]) {
+                        dir("${env.WORKSPACE}"){
+                            sh'''
+                                export  GOOGLE_APPLICATION_CREDENTIALS=$gcp
+                                export  GOOGLE_CLOUD_KEYFILE_JSON=$gcp
+                                terraform init
+                                terraform apply -auto-approve
+                            '''
+                           }
+                    }
+            }
+        }
     }
 }
