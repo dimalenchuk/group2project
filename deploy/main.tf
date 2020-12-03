@@ -75,6 +75,7 @@ resource "kubernetes_service" "mysql_service" {
   }
 
   spec {
+    cluster_ip = data.terraform_remote_state.gke_cluster.outputs.db_internal_ip
     port {
       port        = 3306
       target_port = "3306"
