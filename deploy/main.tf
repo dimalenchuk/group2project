@@ -1,8 +1,8 @@
-data "terraform_remote_state" "infrastructure" {
-  backend = "local"
-
-  config = {
-    path = "../infrastructure/terraform.tfstate"
+data "terraform_remote_state" "gke_cluster" {
+  backend = "gcs"
+  config {
+    bucket  = "${var.gke_cluster_remote_state["bucket"]}"
+    prefix  = "${var.gke_cluster_remote_state["prefix"]}"
   }
 }
 
