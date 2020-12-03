@@ -5,6 +5,12 @@ data "terraform_remote_state" "gke_cluster" {
     prefix      = "terraform/state"
   }
 }
+terraform {
+  backend "gcs" {
+    bucket      = "tfstat"
+    prefix      = "terraform/state"
+  }
+}
 
 provider "kubernetes" {
   load_config_file = false
