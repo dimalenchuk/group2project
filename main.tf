@@ -2,6 +2,8 @@ provider "google" {
   user_project_override = true
 }
 
+data "google_client_config" "default" {}
+
 resource "google_container_cluster" "primary" {
   name     = var.cluster_name
   project =  var.proj_name
