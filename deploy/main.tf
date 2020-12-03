@@ -1,6 +1,6 @@
 data "terraform_remote_state" "gke_cluster" {
   backend = "gcs"
-  config {
+  config = {
     bucket      = "tfstat"
     prefix      = "terraform/state"
   }
