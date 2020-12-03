@@ -2,7 +2,7 @@ data "terraform_remote_state" "infrastructure" {
   backend = "local"
 
   config = {
-    path = "../infrastructure/main.tf"
+    path = "../infrastructure/terraform.tfstate"
   }
 }
 
