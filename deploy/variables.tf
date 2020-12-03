@@ -4,7 +4,7 @@ variable app_label {
   description = "description"
 }
 
-variable "gke_cluster_remote_state" {
+variable gke_cluster_remote_state {
   type        = "map"
   description = "GKE cluster remote state parameters"
 }
