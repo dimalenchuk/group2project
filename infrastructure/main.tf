@@ -54,6 +54,7 @@ resource "google_compute_address" "db_internal_ip" {
   name         = "db-internal-ip"
   address_type = "INTERNAL"
   region  = var.region
+  address      = "10.132.0.5"
   project = "${var.proj_name}"
 }
 
