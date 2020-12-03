@@ -147,7 +147,7 @@ resource "kubernetes_service" "wordpress_service" {
   }
 
   spec {
-    load_balancer_ip = data.terraform_remote_state.gke_cluster.resources.google_compute_address.load_balancer_ip.address
+    load_balancer_ip = data.terraform_remote_state.gke_cluster.outputs.load_balancer_ip
     port {
       port        = 80
       target_port = "80"
