@@ -52,6 +52,6 @@ resource "google_compute_address" "db_internal_ip" {
 }
 
 output db_internal_ip {
-  value       = google_compute_address.load_balancer_ip.address
+  value       = google_compute_address.db_internal_ip.address
   description = "description"
 }
