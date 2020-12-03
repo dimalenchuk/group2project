@@ -8,12 +8,12 @@ data "terraform_remote_state" "gke_cluster" {
 
 provider "kubernetes" {
   load_config_file = false
-  host     = data.terraform_remote_state.infrastructure.outputs.gke_endpoint
-  token = data.terraform_remote_state.infrastructure.outputs.access_token
+  host     = data.terraform_remote_state.gke_cluster.outputs.gke_endpoint
+  token = data.terraform_remote_state.gke_cluster.outputs.access_token
 
-  client_certificate     = "${base64decode(data.terraform_remote_state.infrastructure.outputs.client_certificate)}"
-  client_key             = "${base64decode(data.terraform_remote_state.infrastructure.outputs.client_key)}"
-  cluster_ca_certificate = "${base64decode(data.terraform_remote_state.infrastructure.outputs.ca_certificate)}"
+  client_certificate     = "${base64decode(data.terraform_remote_state.gke_cluster.outputs.client_certificate)}"
+  client_key             = "${base64decode(data.terraform_remote_state.gke_cluster.outputs.client_key)}"
+  cluster_ca_certificate = "${base64decode(data.terraform_remote_state.gke_cluster.outputs.ca_certificate)}"
 }
 
 resource "kubernetes_deployment" "mysql_deploy" {
