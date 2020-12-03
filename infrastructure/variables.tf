@@ -10,9 +10,15 @@ variable proj_name {
   description = "description"
 }
 
-variable region {
+variable location {
   type        = string
   default     = "europe-west1-b"
+  description = "description"
+}
+
+variable region {
+  type        = string
+  default     = "europe-west1"
   description = "description"
 }
 
