@@ -2,9 +2,9 @@ provider "google" {
   user_project_override = true
 }
 terraform {
-  backend "gcs"{
-    bucket      = "tfstate"
-    prefix      = "dev"
+  backend "gcs" {
+    bucket      = "tfstat"
+    prefix      = "terraform/state"
   }
 }
 
