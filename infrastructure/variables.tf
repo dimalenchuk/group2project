@@ -12,7 +12,7 @@ variable proj_name {
 
 variable region {
   type        = string
-  default     = "europe-north1-b"
+  default     = "europe-west1-a"
   description = "description"
 }
 
