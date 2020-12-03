@@ -1,8 +1,8 @@
 data "terraform_remote_state" "gke_cluster" {
   backend = "gcs"
   config {
-    bucket  = "${var.gke_cluster_remote_state["bucket"]}"
-    prefix  = "${var.gke_cluster_remote_state["prefix"]}"
+    bucket  = "tfstate"
+    prefix  = "dev"
   }
 }
 
