@@ -101,8 +101,8 @@ resource "kubernetes_deployment" "wordpress_deploy" {
   }
 
   spec {
-    replicas = 3
-
+    replicas = 2
+    
     selector {
       match_labels = {
         app = var.app_label
