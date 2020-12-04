@@ -14,7 +14,7 @@ resource "google_container_cluster" "primary" {
   name     = var.cluster_name
   project =  var.proj_name
   location = var.location
-  cluster_ipv4_cidr = "10.132.0.0/16"
+  cluster_ipv4_cidr = "10.132.0.0/20"
   remove_default_node_pool = true
   initial_node_count       = 1
 
