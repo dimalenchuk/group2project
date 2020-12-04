@@ -76,7 +76,7 @@ resource "google_compute_network" "west" {
 resource "google_compute_subnetwork" "west" {
   project =  var.proj_name
   name          = "gke-subnetwork"
-  ip_cidr_range = "10.132.0.0/14"
+  ip_cidr_range = "10.132.0.0/16"
   region        = "europe-west1"
   network       = google_compute_network.west.id
 }
