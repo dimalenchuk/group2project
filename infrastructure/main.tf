@@ -53,7 +53,6 @@ resource "google_compute_address" "load_balancer_ip" {
 
 resource "google_compute_address" "db_internal_ip" {
   name         = "db-internal-ip"
-  subnetwork   = google_compute_subnetwork.west.id
   address_type = "INTERNAL"
   region  = var.region
   address      = "10.188.0.5"
@@ -66,18 +65,4 @@ output db_internal_ip {
 }
 output "cluster_ipv4_cidr" {
   value = google_container_cluster.primary.cluster_ipv4_cidr
-}
-
-resource "google_compute_network" "west" {
-  project =  var.proj_name
-  name = "gke-network"
-  auto_create_subnetworks = false
-}
-
-resource "google_compute_subnetwork" "west" {
-  project =  var.proj_name
-  name          = "gke-subnetwork"
-  ip_cidr_range = "10.188.0.0/14"
-  region        = "europe-west1"
-  network       = google_compute_network.west.id
 }
