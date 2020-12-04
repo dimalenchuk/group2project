@@ -8,7 +8,7 @@ data "terraform_remote_state" "gke_cluster" {
 terraform {
   backend "gcs" {
     bucket      = "tfstat"
-    prefix      = "terraform/state"
+    prefix      = "terraform/deploy"
   }
 }
 
