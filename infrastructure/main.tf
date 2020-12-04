@@ -62,3 +62,6 @@ output db_internal_ip {
   value       = google_compute_address.db_internal_ip.address
   description = "description"
 }
+output "cluster_ipv4_cidr" {
+  value = google_container_cluster.primary.cluster_ipv4_cidr
+}
