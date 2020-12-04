@@ -12,7 +12,7 @@ data "google_client_config" "default" {}
 
 resource "google_container_cluster" "primary" {
   network = google_compute_network.west.name
-  subnetwork = "regions/${var.region}/subnetworks/google_compute_subnetwork.west.name"
+  subnetwork = "regions/${var.region}/subnetworks/${google_compute_subnetwork.west.name}"
   name     = var.cluster_name
   project =  var.proj_name
   location = var.location
