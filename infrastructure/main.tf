@@ -48,12 +48,14 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
 
 resource "google_compute_address" "load_balancer_ip" {
   name    = "load-balancer-ip"
+  subnetwork   = google_compute_subnetwork.west.id
   region  = var.region
   project = "${var.proj_name}"
 }
 
 resource "google_compute_address" "db_internal_ip" {
   name         = "db-internal-ip"
+  subnetwork   = google_compute_subnetwork.west.id
   address_type = "INTERNAL"
   region  = var.region
   address      = "10.132.0.5"
