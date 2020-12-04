@@ -70,10 +70,12 @@ output "cluster_ipv4_cidr" {
 }
 
 resource "google_compute_network" "west" {
+  project =  var.proj_name
   name = "gke-network"
 }
 
 resource "google_compute_subnetwork" "west" {
+  project =  var.proj_name
   name          = "gke-subnetwork"
   ip_cidr_range = "10.132.0.0/14"
   region        = "europe-west1"
