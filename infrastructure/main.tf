@@ -66,3 +66,14 @@ output db_internal_ip {
 output "cluster_ipv4_cidr" {
   value = google_container_cluster.primary.cluster_ipv4_cidr
 }
+
+resource "google_compute_network" "west" {
+  name = "gke-network"
+}
+
+resource "google_compute_subnetwork" "west" {
+  name          = "gke-subnetwork"
+  ip_cidr_range = "10.132.0.0/14"
+  region        = "europe-west1"
+  network       = google_compute_network.west.id
+}
