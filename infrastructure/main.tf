@@ -49,7 +49,6 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
 resource "google_compute_address" "load_balancer_ip" {
   name    = "load-balancer-ip"
   region  = var.region
-  network       = google_compute_network.west.id
   project = "${var.proj_name}"
 }
 
