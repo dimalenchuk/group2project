@@ -179,5 +179,3 @@ output mysql_ip {
   description = "description"
   depends_on  = [kubernetes_service.mysql_service]
 }
-
-#1
