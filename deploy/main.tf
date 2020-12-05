@@ -96,7 +96,6 @@ resource "kubernetes_service" "mysql_service" {
 }
 
 resource "kubernetes_deployment" "wordpress_deploy" {
-  depends_on = ["kubernetes_service.mysql_service", "kubernetes_deployment.mysql_deploy"]
   metadata {
     name = "wordpress-deploy"
 
