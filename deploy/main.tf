@@ -58,7 +58,7 @@ resource "kubernetes_deployment" "mysql_deploy" {
       spec {
         container {
           name  = "mysql"
-          image = "dimalenchuk/mysql:01"
+          image = "dimalenchuk/novinanodb:1"
 
           port {
             container_port = 3306
