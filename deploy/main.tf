@@ -131,7 +131,7 @@ resource "kubernetes_deployment" "wordpress_deploy" {
       spec {
         container {
           name  = "wordpress"
-          image = "dimalenchuk/novinano:1"
+          image = "dimalenchuk/novinano:3"
 
           port {
             container_port = 80
@@ -180,4 +180,3 @@ output mysql_ip {
   depends_on  = [kubernetes_service.mysql_service]
 }
 
-#1
