@@ -50,18 +50,3 @@ resource "google_compute_address" "load_balancer_ip" {
   project = "${var.proj_name}"
 }
 
-resource "google_compute_address" "db_internal_ip" {
-  name         = "db-internal-ip"
-  address_type = "INTERNAL"
-  region  = var.region
-  address      = "10.188.0.5"
-  project = "${var.proj_name}"
-}
-
-output db_internal_ip {
-  value       = google_compute_address.db_internal_ip.address
-  description = "description"
-}
-output "cluster_ipv4_cidr" {
-  value = google_container_cluster.primary.cluster_ipv4_cidr
-}
