@@ -160,7 +160,7 @@ resource "kubernetes_service" "wordpress_service" {
   spec {
     port {
       port        = 80
-      target_port = "30030"
+      target_port = 80
     }
 
     selector = {
