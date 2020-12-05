@@ -81,6 +81,7 @@ resource "kubernetes_service" "mysql_service" {
   }
 
   spec {
+    cluster_ip = 10.3.240.111
     port {
       port        = 3306
       target_port = "3306"
