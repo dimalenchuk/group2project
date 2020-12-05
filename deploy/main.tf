@@ -81,7 +81,6 @@ resource "kubernetes_service" "mysql_service" {
   }
 
   spec {
-    cluster_ip = data.terraform_remote_state.gke_cluster.outputs.db_internal_ip
     port {
       port        = 3306
       target_port = "3306"
@@ -135,6 +134,10 @@ resource "kubernetes_deployment" "wordpress_deploy" {
 
           port {
             container_port = 80
+          }
+          env {
+            name  = "MYSQL_DB_ADDRESS"
+            value = kubernetes_service.mysql_service.spec[0].cluster_ip
           }
         }
       }
