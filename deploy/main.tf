@@ -158,10 +158,9 @@ resource "kubernetes_service" "wordpress_service" {
   }
 
   spec {
-    load_balancer_ip = data.terraform_remote_state.gke_cluster.outputs.load_balancer_ip
     port {
       port        = 80
-      target_port = "80"
+      target_port = "8080"
     }
 
     selector = {
@@ -170,15 +169,10 @@ resource "kubernetes_service" "wordpress_service" {
       name = "wordpress-pod"
     }
 
-    type = "LoadBalancer"
+    type = "NodePort"
   }
 }
 
-output loadbalancer_ip {
-  value       = kubernetes_service.wordpress_service.spec[0].load_balancer_ip
-  description = "description"
-  depends_on  = [kubernetes_service.wordpress_service]
-}
 
 output mysql_ip {
   value       = kubernetes_service.mysql_service.spec[0].cluster_ip
@@ -186,5 +180,3 @@ output mysql_ip {
   depends_on  = [kubernetes_service.mysql_service]
 }
 
-
-#111
