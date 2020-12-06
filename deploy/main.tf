@@ -58,7 +58,7 @@ resource "kubernetes_deployment" "mysql_deploy" {
       spec {
         container {
           name  = "mysql"
-          image = "dimalenchuk/novinanodb:plswork"
+          image = "dimalenchuk/novinanodb:plswork2"
 
           port {
             container_port = 3306
@@ -131,7 +131,7 @@ resource "kubernetes_deployment" "wordpress_deploy" {
       spec {
         container {
           name  = "wordpress"
-          image = "dimalenchuk/novinano:plswork1"
+          image = "dimalenchuk/novinano:plswork2"
 
           port {
             container_port = 80
