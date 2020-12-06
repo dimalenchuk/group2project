@@ -131,7 +131,7 @@ resource "kubernetes_deployment" "wordpress_deploy" {
       spec {
         container {
           name  = "wordpress"
-          image = "dimalenchuk/novinano:plswork2"
+          image = "dimalenchuk/novinano:plswork3"
 
           port {
             container_port = 80
