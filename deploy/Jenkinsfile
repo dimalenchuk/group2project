@@ -1,0 +1,36 @@
+pipeline {
+    agent {
+        node {
+            label 'slave1'
+        }
+    }
+    tools {
+        terraform 'terraform'
+    }
+    stages {
+        stage('Clone git') {
+            steps {
+                git credentialsId: 'git', url: 'https://github.com/dimalenchuk/group2project'
+            }
+        }
+        stage('Terraform init and apply') {
+            // when {
+            //     changelog 'deploy'
+            //     beforeAgent true
+            // }
+            steps {
+                withCredentials([file(credentialsId: 'gcp', variable: 'gcp')]) {
+                        dir("${env.WORKSPACE}/deploy"){
+                            sh'''
+                                ls -al  ../infrastructure/
+                                export  GOOGLE_APPLICATION_CREDENTIALS=$gcp
+                                export  GOOGLE_CLOUD_KEYFILE_JSON=$gcp
+                                terraform init
+                                terraform apply -auto-approve
+                            '''
+                           }
+                    }
+            }
+        }
+    }
+}
