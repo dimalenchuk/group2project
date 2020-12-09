@@ -14,10 +14,10 @@ pipeline {
             }
         }
         stage('Terraform init and apply') {
-            // when {
-            //     changelog 'infrastructure'
-            //     beforeAgent true
-            // }
+            when {
+                changelog 'infrastructure'
+                beforeAgent true
+            }
             steps {
                 withCredentials([file(credentialsId: 'gcp', variable: 'gcp')]) {
                         dir("${env.WORKSPACE}/infrastructure"){
