@@ -50,5 +50,3 @@ resource "google_compute_address" "load_balancer_ip" {
   project = "${var.proj_name}"
 }
 
-
-#1
