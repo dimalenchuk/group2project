@@ -49,5 +49,3 @@ resource "google_compute_address" "load_balancer_ip" {
   region  = var.region
   project = "${var.proj_name}"
 }
-
-#1
